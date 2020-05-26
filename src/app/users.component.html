@@ -1,0 +1,55 @@
+<div class="chat-container">
+  <article>
+    <h2>My Users</h2>
+    <table class="table table-dark friend-list">
+      <thead>
+      <tr class="friend-list-header">
+
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Status</th>
+        <th>Gender</th>
+        <th>Age</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let user of users" (click)="onSelect(user)">
+        <td>{{user.email}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.status}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.age}}</td>
+      </tr>
+    </table>
+  </article>
+    <div *ngIf="selectedUser" class="login-dark">
+      <form method="" action="">
+        <h2>Login Form</h2>
+
+          <p>Email: {{selectedUser.email}}</p>
+        <p>
+          <label for="firstName">First name: </label>
+          <input [(ngModel)]="selectedUser.firstName"  name="firstName" id="firstName" placeholder="First Name">
+        </p>
+        <p>
+          <label for="lastName">Last name: </label>
+          <input [(ngModel)]="selectedUser.lastName" name="lastName" id="lastName" placeholder="Last Name">
+        </p>
+        <p>
+          <label for="status">Status: </label>
+          <input [(ngModel)]="selectedUser.status" name="status" id="status" placeholder="status">
+        </p>
+        <p>
+          <label for="gender">Gender: </label>
+          <input [(ngModel)]="selectedUser.gender" name="gender" id="gender" placeholder="gender">
+        </p>
+        <p>
+          <label for="age">Age: </label>
+          <input [(ngModel)]="selectedUser.age" name="age" id="age" placeholder="age">
+        </p>
+          <button id="submit" (click)="updateUser(selectedUser)">Update</button>
+      </form>
+    </div>
+
+</div>
